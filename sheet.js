@@ -41,7 +41,7 @@ Sheet.prototype.generate = function(){
 		colStyleIndex = cols[k].captionStyleIndex || 0;
 		row += addStringCell(self, getColumnLetter(k + 1) + 1, cols[k].caption, colStyleIndex);
 		if (cols[k].width) {
-			colsWidth += '<col customWidth = "1" width="' + cols[k].width + '" max = "' + (k + 1) + '" min="' + (k + 1) + '"/>';
+			colsWidth += '<col customWidth = "' + cols[k].width + '" width="' + cols[k].width + '" max = "' + (k + 1) + '" min="' + (k + 1) + '"/>';
 		}
 	}
 	row += '</x:row>';
