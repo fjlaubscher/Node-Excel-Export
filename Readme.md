@@ -65,9 +65,9 @@ app.get('/', function (req, res) {
       }
     ],
     rows: [
-      ['Francois', 'Ross', 'Markus'],
-      ['Laubscher', 'Berkland', 'Kuhn'],
-      ['francoisl@made.co.za', 'ross@made.co.za', 'markusk@made.co.za']
+      ['Name 1', 'Name 2', 'Name 3'],
+      ['Surname 1', 'Surname 2', 'Surname 3'],
+      ['example@email.com', 'anotherexample@email.com', 'yetanotherexample@email.com']
     ]
   };
 
