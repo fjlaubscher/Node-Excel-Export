@@ -39,43 +39,45 @@ Example of a single worksheet
 ## Example usage with Express
 
 ```javascript
-const express = require('express');
-const nodeExcel = require('excel-export');
-const app = express();
+var express = require('express');
+var nodeExcel = require('excel-export');
+var app = express();
 
 app.get('/', function (req, res) {
-  const conf = {
+  var conf = {
     stylesXmlFile: __dirname + '/styles.xml',
     name: 'report',
     cols: [
       {
         caption: 'First Name',
         type: 'string',
-        width: 250
+        width: 15
       },
       {
         caption: 'Last Name',
         type: 'string',
-        width: 250
+        width: 15
       },
       {
         caption: 'Email',
         type: 'string',
-        width: 250
+        width: 30
       }
     ],
     rows: [
-      ['Name 1', 'Name 2', 'Name 3'],
-      ['Surname 1', 'Surname 2', 'Surname 3'],
-      ['example@email.com', 'anotherexample@email.com', 'yetanotherexample@email.com']
+      ['Bruce', 'Wayne', 'info@bat.man'],
+      ['Clark', 'Kent', 'info@super.man'],
+      ['Peter', 'Parker', 'info@spider.man']
     ]
   };
 
-  const result = nodeExcel.execute(conf);
+  var result = nodeExcel.execute(conf);
   res.setHeader('Content-Type', 'application/vnd.openxmlformats');
   res.setHeader('Content-Disposition', 'attachment; filename=Report.xlsx');
   res.send(new Buffer(result, 'binary'));
 });
 
-app.listen(3001);
+app.listen(3001, function () {
+  console.log('listening on port 3001');
+});
 ```

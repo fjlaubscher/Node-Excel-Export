@@ -1,24 +1,17 @@
 {
   "name": "excel-export",
-  "version": "0.5.2",
+  "version": "0.5.1",
   "description": "Simple data set export to Excel xlsx file",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test/main"
-  },
-  "repository": "https://github.com/functionscope/Node-Excel-Export",
+  "repository": "https://github.com/madeagency/Node-Excel-Export",
   "keywords": [
     "Excel",
     "xlsx"
   ],
-  "author": "Ber-Lin Lai <berlin.lai@gmail.com>",
-  "license": "BSD",
+  "author": "Francois Laubscher <francoisl@made.co.za>",
+  "license": "BSD-3-Clause",
   "dependencies": {
-    "collections": "^3.0.0",
-    "node-zip": "1.x"
-  },
-  "devDependencies": {
-    "mocha": "",
-    "should": ""
+    "collections": "^5.0.6",
+    "node-zip": "^1.1.1"
   }
 }
