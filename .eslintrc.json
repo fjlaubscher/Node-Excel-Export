@@ -5,7 +5,7 @@
     },
     "globals": {
         "JSZip": true
-    }
+    },
     "extends": "eslint:recommended",
     "rules": {
         "indent": [
