@@ -14,11 +14,9 @@ var addBoolCell = helpers.addBoolCell;
 var addStringCell = helpers.addStringCell;
 var getColumnLetter = helpers.getColumnLetter;
 
-function Sheet (config, xlsx, shareStrings, convertedShareStrings) {
+function Sheet (config, xlsx) {
   this.config = config;
   this.xlsx = xlsx;
-  this.shareStrings = shareStrings;
-  this.convertedShareStrings = convertedShareStrings; 
 }
 
 Sheet.prototype.generate = function() {

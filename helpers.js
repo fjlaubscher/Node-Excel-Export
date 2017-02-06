@@ -14,7 +14,7 @@ exports.startTag = function (obj, tagName, closed) {
 };
 
 exports.endTag = function (tagName) {
-  return '</' + tagName + '>';
+  return `</${tagName}>`;
 };
 
 exports.addNumberCell = function (cellRef, value, styleIndex) {
@@ -22,7 +22,7 @@ exports.addNumberCell = function (cellRef, value, styleIndex) {
   if (value === null) {    
     return '';
   } else {
-    return '<x:c r="' + cellRef + '" s="' + styleIndex + '" t="n"><x:v>' + value + '</x:v></x:c>';
+    return `<x:c r="${cellRef}" s="${styleIndex}" t="n"><x:v>${value}</x:v></x:c>`;
   }
 };
 
@@ -31,7 +31,7 @@ exports.addDateCell = function (cellRef, value, styleIndex) {
   if (value === null) {
     return '';
   } else {
-    return '<x:c r="' + cellRef + '" s="' + styleIndex + '" t="n"><x:v>' + value + '</x:v></x:c>';
+    return `<x:c r="${cellRef}" s="${styleIndex}" t="n"><x:v>${value}</x:v></x:c>`;
   }
 };
 
@@ -47,7 +47,7 @@ exports.addBoolCell = function (cellRef, value, styleIndex) {
     value = 0;
   }
 
-  return '<x:c r="' + cellRef + '" s="' + styleIndex + '" t="b"><x:v>' + value + '</x:v></x:c>';
+  return `<x:c r="${cellRef}" s="${styleIndex}" t="b"><x:v>${value}</x:v></x:c>`;
 };
 
 
@@ -62,14 +62,7 @@ exports.addStringCell = function (sheet, cellRef, value, styleIndex) {
     value = value.replace(/&/g, '&amp;').replace(/'/g, '&apos;').replace(/>/g, '&gt;').replace(/</g, '&lt;');
   }
 
-  var i = sheet.shareStrings.get(value, -1);
-  if (i < 0) {
-    i = sheet.shareStrings.length;
-    sheet.shareStrings.add(value, i);
-    sheet.convertedShareStrings += '<x:si><x:t>' + value + '</x:t></x:si>';
-  }
-
-  return '<x:c r="' + cellRef + '" s="' + styleIndex + '" t="s"><x:v>' + i + '</x:v></x:c>';
+  return `<x:c r="${cellRef}" s="${styleIndex}" t="inlineStr"><x:is><x:t>${value}</x:t></x:is></x:c>`;
 };
 
 exports.getColumnLetter = function (col) {
