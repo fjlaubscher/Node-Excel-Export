@@ -33,7 +33,7 @@ Sheet.prototype.generate = function() {
   config.fileName = 'xl/worksheets/' + (config.name || 'sheet').replace(/[*?\]\[\/\/]/g, '') + '.xml';
 
   if (config.stylesXmlFile) {
-    var styles = fs.readFileSync(config.stylesXmlFile, 'utf8');
+    const styles = fs.readFileSync(config.stylesXmlFile, 'utf8');
     if (styles) {
       xlsx.file('xl/styles.xml', styles);
     }
@@ -61,9 +61,9 @@ Sheet.prototype.generate = function() {
     row = '<x:row r="' + currRow + '" spans="1:' + cols.length + '">';
     
     for (var j = 0; j < cols.length; j++) {
-      var cellData = r[j];
+      var cellData = typeof r[j] === 'object' ? r[j].value : r[j];
       var cellType = cols[j].type;
-      var styleIndex = null;
+      var styleIndex = typeof r[j] === 'object' ? r[j].style : null;
       
       if (typeof cols[j].beforeCellWrite === 'function') {
         var e = {
