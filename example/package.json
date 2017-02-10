@@ -6,6 +6,6 @@
   "author": "Francois Laubscher",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "express": "^4.14.1",
+    "express": "^4.14.1"
   }
 }

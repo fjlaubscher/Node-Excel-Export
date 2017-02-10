@@ -1,4 +1,5 @@
 const nodeZip = require('node-zip');
+const constants = require('./constants.json');
 const Sheet = require('./sheet');
 
 const sheetsFront = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
@@ -71,11 +72,11 @@ exports.execute = function(config) {
   } else {
     configs.push(config);
   }
-  
-  var xlsx = nodeZip();
+
+  var xlsx = nodeZip(constants.xlsTemplate, { base64: true, checkCRC32: false });
   generateMultiSheets(configs, xlsx);
   generateWorkbook(configs, xlsx);
-  generateRel(configs,xlsx) ;
+  generateRel(configs, xlsx);
   generateContentType(configs, xlsx); 
 
   return xlsx.generate({

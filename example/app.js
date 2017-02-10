@@ -8,22 +8,23 @@ app.get('/', function (req, res) {
     name: 'report',
     cols: [
       {
-        caption: 'First Name',
+        caption: '',
         type: 'string',
         width: 15
       },
       {
-        caption: 'Last Name',
+        caption: '',
         type: 'string',
         width: 15
       },
       {
-        caption: 'Email',
+        caption: '',
         type: 'string',
         width: 30
       }
     ],
     rows: [
+      [{ value: 'First Name', style: 1 }, { value: 'Last Name', style: 1 }, { value: 'Email', style: 1 }],
       ['Bruce', 'Wayne', 'info@bat.man'],
       ['Clark', 'Kent', 'info@super.man'],
       ['Peter', 'Parker', 'info@spider.man']
